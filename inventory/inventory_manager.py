@@ -56,6 +56,14 @@ class InventoryManager:
             [f"REC-{i:05d}" for i in range(1, len(data) + 1)],
         )
 
+        risk_mapping = {
+        0: "Low",
+        1: "Medium",
+        2: "High",
+        }
+
+        data["Risk_Category"] = data["Decision"].map(risk_mapping)
+
         return data
 
     def get_all_records(self):
@@ -90,13 +98,21 @@ class InventoryManager:
         return self.records[mask].copy()
 
     def filter_by_decision(self, decision):
-        """Filter by the actual Decision value in the dataset."""
         if decision is None or str(decision).strip() == "":
             return self.get_all_records()
 
+        value = str(decision).strip().lower()
+
+        risk_mapping = {
+            "0": "Low",
+            "1": "Medium",
+            "2": "High",
+        }
+
+        category = risk_mapping.get(value, value.title())
+
         return self.records[
-            self.records["Decision"].astype(str)
-            == str(decision).strip()
+            self.records["Risk_Category"].str.lower() == category.lower()
         ].copy()
 
     def get_summary(self):
