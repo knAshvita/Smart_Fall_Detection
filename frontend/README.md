@@ -50,8 +50,9 @@ is unavailable, those requests cannot return current project data.
 - **Records:** Displays inventory data with record search and risk-category
   filtering.
 - **Analysis:** Displays the saved model-evaluation figures from
-  `public/graphs/`. Select a chart to open its larger view and a chart-specific
-  explanation.
+  `public/graphs/`, including model-comparison charts, feature-importance
+  charts, and decision-tree visualizations. Select a chart to open its larger
+  view and a chart-specific explanation.
 - **Prediction:** Accepts the six sensor values used by the model and submits
   them to `POST /predict`.
 - **Prediction History:** Displays predictions saved by the backend, including

@@ -154,6 +154,17 @@ const graphs = [
       "Importance can help explain which inputs influenced this fitted model, but it does not establish causation or describe how a feature changes risk.",
   },
   {
+    file: "decision_tree_complete.png",
+    title: "Decision Tree Structure",
+    description: "Explore the complete structure of the fitted decision tree.",
+    howToRead:
+      "Start at the root node and follow each feature condition down the branches. The terminal leaf reached represents the tree's prediction; node colors and values follow the labels in the diagram.",
+    lookFor:
+      "Follow the branch conditions to see how input values lead to a prediction. Deeper branches represent more specific splits, while the diagram's node labels provide the details for each decision.",
+    whyItMatters:
+      "A tree visualization makes an individual model's decision path easier to inspect, but it does not establish that a rule causes a change in fall risk.",
+  },
+  {
     file: "random_forest_feature_importance.png",
     title: "Random Forest Feature Importance",
     description: "View the feature importance reported for the random forest.",
@@ -163,6 +174,17 @@ const graphs = [
       "Compare the largest scores to see which inputs the forest relied on most. Correlated features may share or distort importance, so interpret close rankings cautiously.",
     whyItMatters:
       "This view offers a model-specific summary of influential inputs; it is not evidence that a feature causes a change in fall risk.",
+  },
+  {
+    file: "random_forest_tree_01_complete.png",
+    title: "Random Forest Tree 1 Structure",
+    description: "Inspect the structure of the first tree in the random forest.",
+    howToRead:
+      "Start at the root node and follow each feature condition down the branches. The terminal leaf reached represents this tree's prediction; use the diagram's labels to interpret node values.",
+    lookFor:
+      "Trace how the tree splits the input features into increasingly specific groups. This is one tree from the forest, not the forest's final prediction on its own.",
+    whyItMatters:
+      "The diagram illustrates one component of the ensemble. A random forest combines predictions from many trees, so this individual tree does not explain the full forest decision by itself.",
   },
   {
     file: "svm_permutation_feature_importance.png.png",
